@@ -7,30 +7,25 @@ const { H1 } = XElement
 </H1>
 
 <style>
-    @font-face {
-    font-family: "obviously-variable";
-    src: url("/ObviouslyVariable.ttf") format("truetype-variations");
-    font-weight: 150 800;
+.headline {
+    /* Typetura animation function */
+    animation: 1s var(--tt-ease, linear) calc(-1s * var(--tt-bind, 500) / var(--tt-max, 1000)) 1 both paused var(--tt-key, none);
+    
+    --tt-key: headline;
+    --tt-ease: cubic-bezier(0.75,0,0.75,1);
+    --tt-max: 700;
+    line-height: 1;
+    font-variation-settings: "SOFT" 0, "WONK" 1;
+    margin: 0.5rem 0;
+}
+@keyframes headline {
+    0% {
+        font-size: 1rem;
+        font-weight: 500;
     }
-    .headline {
-        /* Typetura animation function */
-        animation: 1s var(--tt-ease, linear) calc(-1s * var(--tt-bind, 500) / var(--tt-max, 1000)) 1 both paused var(--tt-key, none);
-        
-        --tt-key: headline;
-        --tt-ease: cubic-bezier(0.75,0,0.75,1);
-        --tt-max: 700;
-        line-height: 1;
-        font-variation-settings: "SOFT" 0, "WONK" 1;
-        margin: 0.5rem 0;
+    100% {
+        font-size: 4rem;
+        font-weight: 300;
     }
-    @keyframes headline {
-        0% {
-            font-size: 1rem;
-            font-weight: 500;
-        }
-        100% {
-            font-size: 4rem;
-            font-weight: 300;
-        }
-    }
+}
 </style>
