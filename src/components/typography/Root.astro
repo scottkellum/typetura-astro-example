@@ -1,0 +1,34 @@
+<script>
+    // Define Typetura context for the root element
+    function resize() {
+        document.documentElement.style.setProperty("--tt-bind", window.innerWidth)
+    } resize(); window.onresize = resize;
+</script>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,100..900,0..100,0..1&family=Fraunces:ital,opsz,wght,SOFT,WONK@1,9..144,100..900,0..100,0..1&display=swap");
+
+    /* Variables and page setup */
+
+    html {
+        /* Typetura animation function */
+        animation: 1s var(--tt-ease, linear) calc(-1s * var(--tt-bind, 500) / var(--tt-max, 1000)) 1 both paused var(--tt-key, none);
+
+        /* Root styles */
+        font-family: Fraunces, serif;
+        font-size: 115%;
+        line-height: 1.35;
+        font-weight: 340;
+        --tt-key: html;
+        --tt-max: 900;
+        --tt-ease: cubic-bezier(0, 0.78, 0.53, 1);
+    }
+    @keyframes html {
+        0% {
+            font-size: 0%;
+        }
+
+        100% {
+            font-size: 125%;
+        }
+    }
+</style>

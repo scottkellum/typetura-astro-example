@@ -1,0 +1,33 @@
+---
+import XElement from 'astro-xelement'
+const { H1 } = XElement
+---
+<H1 class="masthead" @resize={() => { this.style.setProperty('--tt-bind', this.clientWidth) }}>
+    <slot />
+</H1>
+
+<style>
+.masthead {
+    /* Typetura animation function */
+    animation: 1s var(--tt-ease, linear) calc(-1s * var(--tt-bind, 500) / var(--tt-max, 1000)) 1 both paused var(--tt-key, none);
+    
+    text-align: center;
+    font-variation-settings: "WONK" 1, "SOFT" 30;
+    --tt-key: masthead;
+    --tt-max: 1200;
+    --tt-ease: ease-in-out;
+    margin: 0.5em 0 -0.5em;
+}
+@keyframes masthead {
+    0% {
+        font-size: 1rem;
+        margin-bottom: -0.45em;
+        font-weight: 600;
+    }
+    100% {
+        font-size: 6.5rem;
+        margin-bottom: -0.375em;
+        font-weight: 500;
+    }
+}
+</style>
