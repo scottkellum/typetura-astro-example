@@ -1,3 +1,11 @@
+---
+const { apiKey = '', pack = 'armonk' } = Astro.props;
+
+const p = pack.toLowerCase().replace(/\s/g, "-").replace(/\s/g, "-")
+
+console.log(p);
+---
+
 <script>
 // Define Typetura context for the root element
 function resize() {
